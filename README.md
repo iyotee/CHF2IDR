@@ -4,8 +4,6 @@ Simple python script that will convert CHF Swiss Francs to IDR Indonesian Rupiah
 
 ### Prerequisites
 
-You should already have a bot on telegram or you have to create one, thus returns you a token. Then you can ask the Telegram UserID bot to give you your User ID.
-
 * pip
 
 ```sh
@@ -14,7 +12,12 @@ sudo apt-get install python3-pip -y
 
 ### Installation
 
-1. Get a free API Key from Telegram @BotFather https://telegram.me/BotFather and the UserID from @myidbot by sending the command /getid
+
+1. Get a free API Key from Telegram @BotFather https://telegram.me/BotFather. Then you can ask the Telegram UserID bot https://telegram.me/myidbot to give you your User ID by sending the command :
+
+```sh
+/getid
+```
 
 2. Clone the repo
 
