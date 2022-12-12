@@ -14,7 +14,7 @@ sudo apt-get install python3-pip -y
 
 ### Installation
 
-1. Get a free API Key from Telegram @BotFather https://telegram.me/BotFather
+1. Get a free API Key from Telegram @BotFather https://telegram.me/BotFather and the UserID from @myidbot by sending the command /getid
 
 2. Clone the repo
 
