@@ -48,4 +48,22 @@ python3 main2.py
 ```
 for using a different API service (APILAYER.COM)
 
-Enjoy ! 
+### Optionnal
+
+you can create a cron task every hour ( 0 * * * * ) 
+
+```sh
+crontab -e
+```
+edit the end of the files by appending :
+```sh
+0 * * * * python3 CHF2IDR/main.py
+```
+
+OR 
+
+```sh
+0 * * * * python3 CHF2IDR/main2.py
+```
+
+Save and exit with ctrl+x and that's it ! Your bot is now running and sending your message on your Telegram user every hour ! 🎊 
