@@ -29,5 +29,5 @@ result_text = f"Exchange rate: {base_currency} to {exchange_rate}"
 
 if (status_code == 200):
     # Send the result in a telegram user
-    telegram_url = f"https://api.telegram.org/bot5925869792:AAETkfiEIJ5VBbSHW7vzygzfqDpHOKTZBxA/sendMessage?chat_id=1011416325&text={result_text}"
+    telegram_url = f"https://api.telegram.org/botYOUR_TELEGRAM_TOKEN_HERE/sendMessage?chat_id=YOUR_CHAT_ID_HERE&text={result_text}"
     requests.post(telegram_url)
