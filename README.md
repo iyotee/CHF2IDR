@@ -35,7 +35,7 @@ python3 pip install json -y
 
 4. Enter your API in `main.py` or `main2.py`
 
-simply run 
+5. Simply run 
 
 ```sh
 python3 main.py
