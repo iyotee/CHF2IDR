@@ -9,7 +9,7 @@ url = "https://api.apilayer.com/fixer/latest?symbols={}&base={}".format(
 
 payload = {}
 headers = {
-    "apikey": "7IX8d8YBCh1d63pbLd7r0TyO4kmX9DhF"
+    "apikey": "YOUR_FETCHIO_OR_APILAYER_API_KEY"
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
