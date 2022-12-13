@@ -28,12 +28,9 @@ git clone https://github.com/iyotee/CHF2IDR.git
 3. Install pip packages
 
 ```sh
-pip install requests
+pip3 install -r requirements.txt
 ```
 
-```sh
-pip install json
-```
 
 
 4. Enter your API in `main.py` or `main2.py`
