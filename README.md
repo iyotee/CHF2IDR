@@ -28,11 +28,11 @@ git clone https://github.com/iyotee/CHF2IDR.git
 3. Install pip packages
 
 ```sh
-pip install requests -y
+pip install requests
 ```
 
 ```sh
-pip install json -y
+pip install json
 ```
 
 
