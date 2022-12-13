@@ -3,6 +3,8 @@ import json
 
 symbol = "IDR"
 base = "CHF"
+bot_token = "YOUR_TELEGRAM_BOT_TOKEN_HERE"
+chat_id = "YOUR_CHAT_ID_HERE"
 
 url = "https://api.apilayer.com/fixer/latest?symbols={}&base={}".format(
     symbol, base)
@@ -29,5 +31,5 @@ result_text = f"Exchange rate: {base_currency} to {exchange_rate}"
 
 if (status_code == 200):
     # Send the result in a telegram user
-    telegram_url = f"https://api.telegram.org/botYOUR_TELEGRAM_TOKEN_HERE/sendMessage?chat_id=YOUR_CHAT_ID_HERE&text={result_text}"
+    telegram_url = "https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}".format(bot_token, chat_id, result_text)
     requests.post(telegram_url)
