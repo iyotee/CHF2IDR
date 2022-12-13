@@ -5,13 +5,14 @@ symbol = "IDR"
 base = "CHF"
 bot_token = "YOUR_TELEGRAM_BOT_TOKEN_HERE"
 chat_id = "YOUR_CHAT_ID_HERE"
+fixer_token = "YOUR_FIXER.IO_OR_APILAYER_API_KEY"
 
 url = "https://api.apilayer.com/fixer/latest?symbols={}&base={}".format(
     symbol, base)
 
 payload = {}
 headers = {
-    "apikey": "YOUR_FETCHIO_OR_APILAYER_API_KEY"
+    "apikey": fixer_token
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
