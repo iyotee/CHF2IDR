@@ -38,7 +38,7 @@ pip3 install -r requirements.txt
 5. Simply run 
 
 ```sh
-python3 main.py
+cd CHF2IDR && python3 main.py
 ```
 
 or
