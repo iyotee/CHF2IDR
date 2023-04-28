@@ -31,7 +31,7 @@ def send_telegram_message(bot_token, chat_id, text):
 def main():
     try:
         base_currency, exchange_rate = get_exchange_rate(SYMBOL, BASE, FIXER_TOKEN)
-        result_text = f"Exchange rate: {base_currency} to {exchange_rate}"
+        result_text = f"Exchange rate: {base_currency} to {list(exchange_rate.keys())[0]}: {exchange_rate[list(exchange_rate.keys())[0]]}"
         send_telegram_message(BOT_TOKEN, CHAT_ID, result_text)
     except Exception as e:
         print(e)
