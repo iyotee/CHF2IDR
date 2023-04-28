@@ -1,36 +1,40 @@
 import requests
 import json
 
-symbol = "IDR"
-base = "CHF"
-bot_token = "YOUR_TELEGRAM_BOT_TOKEN_HERE"
-chat_id = "YOUR_CHAT_ID_HERE"
-fixer_token = "YOUR_FIXER.IO_OR_APILAYER_API_KEY"
+# Constants
+SYMBOL = "IDR"
+BASE = "CHF"
+BOT_TOKEN = "YOUR_TELEGRAMBOT_TOKEN"
+CHAT_ID = "YOUR_CHATBOT_ID"
+FIXER_TOKEN = "YOUR_API_TOKEN"
 
-url = "https://api.apilayer.com/fixer/latest?symbols={}&base={}".format(
-    symbol, base)
+def get_exchange_rate(symbol, base, fixer_token):
+    url = f"https://api.apilayer.com/fixer/latest?symbols={symbol}&base={base}"
+    headers = {"apikey": fixer_token}
+    response = requests.get(url, headers=headers)
 
-payload = {}
-headers = {
-    "apikey": fixer_token
-}
+    if response.status_code == 200:
+        response_dict = json.loads(response.text)
+        base_currency = response_dict["base"]
+        exchange_rate = response_dict["rates"]
+        return base_currency, exchange_rate
+    else:
+        raise Exception(f"Error fetching exchange rate data: {response.status_code}")
 
-response = requests.request("GET", url, headers=headers, data=payload)
+def send_telegram_message(bot_token, chat_id, text):
+    telegram_url = f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={text}"
+    response = requests.post(telegram_url)
 
-status_code = response.status_code
-result = response.text
+    if response.status_code != 200:
+        raise Exception(f"Error sending message via Telegram: {response.status_code}")
 
-# Parse the JSON string into a dictionary
-response_dict = json.loads(response.text)
+def main():
+    try:
+        base_currency, exchange_rate = get_exchange_rate(SYMBOL, BASE, FIXER_TOKEN)
+        result_text = f"Exchange rate: {base_currency} to {exchange_rate}"
+        send_telegram_message(BOT_TOKEN, CHAT_ID, result_text)
+    except Exception as e:
+        print(e)
 
-# Access the values of the dictionary
-base_currency = response_dict["base"]
-exchange_rate = response_dict["rates"]
-
-# Format the values into a plain text string
-result_text = f"Exchange rate: {base_currency} to {exchange_rate}"
-
-if (status_code == 200):
-    # Send the result in a telegram user
-    telegram_url = "https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}".format(bot_token, chat_id, result_text)
-    requests.post(telegram_url)
+if __name__ == "__main__":
+    main()
